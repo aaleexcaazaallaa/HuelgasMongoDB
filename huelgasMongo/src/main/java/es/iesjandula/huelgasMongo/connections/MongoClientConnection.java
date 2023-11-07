@@ -1,6 +1,5 @@
 package es.iesjandula.huelgasMongo.connections;
 
-import org.bson.Document;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -13,27 +12,34 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoClientConnection
 {
-	public static void main(String[] args)
+	
+	private MongoDatabase database;
+	private MongoClient mongoClient;
+	/**
+	 * @param connectionString
+	 */
+	public MongoClientConnection(String connectionString)
 	{
-		String connectionString = "mongodb+srv://<username>:<password>@bananasl.vvxrhe2.mongodb.net/?retryWrites=true&w=majority";
-
 		ServerApi serverApi = ServerApi.builder().version(ServerApiVersion.V1).build();
 
 		MongoClientSettings settings = MongoClientSettings.builder().applyConnectionString(new ConnectionString(connectionString)).serverApi(serverApi).build();
-
-		// Create a new client and connect to the server
-		try (MongoClient mongoClient = MongoClients.create(settings))
+		
+		this.mongoClient = MongoClients.create(settings);
+		
+		try
 		{
-			try
-			{
-				// Send a ping to confirm a successful connection
-				MongoDatabase database = mongoClient.getDatabase("admin");
-				database.runCommand(new Document("ping", 1));
-				System.out.println("Pinged your deployment. You successfully connected to MongoDB!");
-			} catch (MongoException e)
-			{
-				e.printStackTrace();
-			}
+			this.database = this.mongoClient.getDatabase("admin");
+		} catch (MongoException e)
+		{
+			System.exit(0);
 		}
+	}
+	
+	public void closeDatabase() {
+		this.mongoClient.close();
+	}
+	
+	public MongoDatabase getDatabase() {
+		return this.database;
 	}
 }
