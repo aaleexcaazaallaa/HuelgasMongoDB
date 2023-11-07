@@ -18,7 +18,7 @@ public class ConsultaHuelga extends JFrame
 {
 
 	private JPanel contentPane;
-	private JTextField txtFieldFecha;
+	private JTextField textFieldFecha;
 	private JTextField textFieldNumAlumnosEnHuelga;
 	private JTextField textFieldCursoConMasAlumnos;
 	private JTextField textFieldCursoConMenosAlumnos;
@@ -65,12 +65,12 @@ public class ConsultaHuelga extends JFrame
 		lblFecha.setBounds(160, 80, 79, 44);
 		contentPane.add(lblFecha);
 		
-		txtFieldFecha = new JTextField();
-		txtFieldFecha.setHorizontalAlignment(SwingConstants.LEFT);
-		txtFieldFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtFieldFecha.setBounds(272, 81, 353, 44);
-		contentPane.add(txtFieldFecha);
-		txtFieldFecha.setColumns(10);
+		textFieldFecha = new JTextField();
+		textFieldFecha.setHorizontalAlignment(SwingConstants.LEFT);
+		textFieldFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textFieldFecha.setBounds(272, 81, 353, 44);
+		contentPane.add(textFieldFecha);
+		textFieldFecha.setColumns(10);
 		
 		JLabel lblNumAlumnosEnHuelga = new JLabel("Nº DE ALUMNOS EN HUELGA:");
 		lblNumAlumnosEnHuelga.setFont(new Font("Tahoma", Font.BOLD, 20));
