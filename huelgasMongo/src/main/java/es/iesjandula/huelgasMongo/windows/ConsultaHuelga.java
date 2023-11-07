@@ -1,19 +1,18 @@
 package es.iesjandula.huelgasMongo.windows;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class ConsultaHuelga extends JFrame
 {
@@ -52,6 +51,13 @@ public class ConsultaHuelga extends JFrame
 		btnSalir.setBackground(Color.RED);
 		btnSalir.setForeground(Color.WHITE);
 		btnSalir.setBounds(448, 444, 177, 59);
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame initialWindow = new InitialWindow();
+				initialWindow.setVisible(true);
+				setVisible(false);
+			}
+		});
 		contentPane.add(btnSalir);
 		
 		JLabel lblFecha = new JLabel("FECHA:");

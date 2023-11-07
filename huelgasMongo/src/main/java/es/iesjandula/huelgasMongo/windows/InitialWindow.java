@@ -32,6 +32,9 @@ public class InitialWindow extends JFrame
 		JButton botonConsulta = new JButton("Consulta");
 		botonConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame consultaHuelga = new ConsultaHuelga();
+				consultaHuelga.setVisible(true);
+				setVisible(false);
 			}
 		});
 		botonConsulta.setBounds(172, 119, 89, 23);
