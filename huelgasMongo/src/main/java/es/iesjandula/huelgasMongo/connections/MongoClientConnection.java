@@ -28,7 +28,7 @@ public class MongoClientConnection
 		
 		try
 		{
-			this.database = this.mongoClient.getDatabase("admin");
+			this.database = this.mongoClient.getDatabase("BananaSL");
 		} catch (MongoException e)
 		{
 			System.exit(0);

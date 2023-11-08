@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JCheckBox;
 
 public class ConsultaHuelga extends JFrame
 {
@@ -113,13 +114,15 @@ public class ConsultaHuelga extends JFrame
 		lblCursosQueNoVan.setBounds(160, 368, 233, 44);
 		contentPane.add(lblCursosQueNoVan);
 		
-		JComboBox comboBoxCursosQueNoVan = new JComboBox();
-		comboBoxCursosQueNoVan.setBounds(402, 368, 223, 44);
-		contentPane.add(comboBoxCursosQueNoVan);
-		
 		JLabel lblConsultasHuelgas = new JLabel("CONSULTAS DE HUELGAS");
 		lblConsultasHuelgas.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblConsultasHuelgas.setBounds(260, 21, 264, 44);
 		contentPane.add(lblConsultasHuelgas);
+		
+		JCheckBox chckbxCursosQueNoVAn = new JCheckBox("New check box");
+		chckbxCursosQueNoVAn.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		chckbxCursosQueNoVAn.setHorizontalAlignment(SwingConstants.LEFT);
+		chckbxCursosQueNoVAn.setBounds(399, 368, 226, 44);
+		contentPane.add(chckbxCursosQueNoVAn);
 	}
 }
