@@ -2,9 +2,9 @@ package es.iesjandula.huelgasMongo.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class ParseAlumnos
 {
@@ -18,36 +18,40 @@ public class ParseAlumnos
 	{
 		this.path = path;
 	}
-	
-	public List<Alumno> parse (){
-		
-		List<Alumno> alumnos = new ArrayList<Alumno>();
-		
+
+	public Map<String, Alumno> parse()
+	{
+
+		Map<String, Alumno> alumnos = new TreeMap<String, Alumno>();
+
 		File file = new File(this.path);
-		
+
 		Scanner scanner = null;
-		
+
 		try
 		{
 			scanner = new Scanner(file);
-			
+
 			scanner.nextLine();
-			
-			while(scanner.hasNextLine()) {
-				
-				
-				
+
+			while (scanner.hasNextLine())
+			{
+				Alumno newAlumno = createAlumno(scanner.nextLine().split(";"));
+				alumnos.put(newAlumno.getDni(), newAlumno);
 			}
-			
+
 		} catch (FileNotFoundException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return alumnos;
 	}
-	
-	p
-	
+
+	public Alumno createAlumno(String[] parameters)
+	{
+		return new Alumno(parameters[0], parameters[1], parameters[2]);
+	}
+
 }
