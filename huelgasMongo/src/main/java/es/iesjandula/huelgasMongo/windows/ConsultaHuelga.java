@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JCheckBox;
+import javax.swing.JScrollBar;
+import javax.swing.JList;
+import javax.swing.border.LineBorder;
 
 public class ConsultaHuelga extends JFrame
 {
@@ -119,10 +122,10 @@ public class ConsultaHuelga extends JFrame
 		lblConsultasHuelgas.setBounds(260, 21, 264, 44);
 		contentPane.add(lblConsultasHuelgas);
 		
-		JCheckBox chckbxCursosQueNoVAn = new JCheckBox("New check box");
-		chckbxCursosQueNoVAn.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		chckbxCursosQueNoVAn.setHorizontalAlignment(SwingConstants.LEFT);
-		chckbxCursosQueNoVAn.setBounds(399, 368, 226, 44);
-		contentPane.add(chckbxCursosQueNoVAn);
+		JList listCursosQueNoVAn = new JList();
+		listCursosQueNoVAn.setBorder(new LineBorder(new Color(0, 0, 0)));
+		listCursosQueNoVAn.setToolTipText("");
+		listCursosQueNoVAn.setBounds(403, 368, 222, 44);
+		contentPane.add(listCursosQueNoVAn);
 	}
 }
