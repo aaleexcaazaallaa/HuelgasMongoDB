@@ -16,7 +16,7 @@ public class ConsulaHuelgaCurso extends JFrame
 {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField inputFecha;
 
 
 	/**
@@ -42,14 +42,14 @@ public class ConsulaHuelgaCurso extends JFrame
 		labelFecha.setBounds(219, 95, 73, 44);
 		contentPane.add(labelFecha);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(326, 48, 239, 37);
-		contentPane.add(comboBox);
+		JComboBox seleccionCurso = new JComboBox();
+		seleccionCurso.setBounds(326, 48, 239, 37);
+		contentPane.add(seleccionCurso);
 		
-		textField = new JTextField();
-		textField.setBounds(326, 99, 239, 44);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		inputFecha = new JTextField();
+		inputFecha.setBounds(326, 99, 239, 44);
+		contentPane.add(inputFecha);
+		inputFecha.setColumns(10);
 		
 		JList listAlumnos = new JList();
 		listAlumnos.setBounds(219, 150, 346, 310);
