@@ -24,10 +24,9 @@ public class InitialWindow extends JFrame
 		JButton botonHuelga = new JButton("Huelga");
 		botonHuelga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame consultaHuelga = new ConsultaHuelga();
-				consultaHuelga.setVisible(true);
+				JFrame Huelga = new Huelga();
+				Huelga.setVisible(true);
 				setVisible(false);
-
 			}
 		});
 		botonHuelga.setBounds(172, 81, 89, 23);

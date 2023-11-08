@@ -17,15 +17,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JScrollBar;
 import javax.swing.JList;
 import javax.swing.border.LineBorder;
+import javax.swing.JCheckBoxMenuItem;
 
 public class ConsultaHuelga extends JFrame
 {
 
 	private JPanel contentPane;
 	private JTextField textFieldFecha;
-	private JTextField textFieldNumAlumnosEnHuelga;
-	private JTextField textFieldCursoConMasAlumnos;
-	private JTextField textFieldCursoConMenosAlumnos;
 
 	/**
 	 * Create the frame.
@@ -81,36 +79,15 @@ public class ConsultaHuelga extends JFrame
 		lblNumAlumnosEnHuelga.setBounds(160, 152, 299, 44);
 		contentPane.add(lblNumAlumnosEnHuelga);
 		
-		textFieldNumAlumnosEnHuelga = new JTextField();
-		textFieldNumAlumnosEnHuelga.setHorizontalAlignment(SwingConstants.CENTER);
-		textFieldNumAlumnosEnHuelga.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textFieldNumAlumnosEnHuelga.setColumns(10);
-		textFieldNumAlumnosEnHuelga.setBounds(479, 153, 146, 44);
-		contentPane.add(textFieldNumAlumnosEnHuelga);
-		
 		JLabel lblCursoConMasAlumnos = new JLabel("CURSO CON MÁS ALUMNOS:");
 		lblCursoConMasAlumnos.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblCursoConMasAlumnos.setBounds(160, 224, 285, 44);
 		contentPane.add(lblCursoConMasAlumnos);
 		
-		textFieldCursoConMasAlumnos = new JTextField();
-		textFieldCursoConMasAlumnos.setHorizontalAlignment(SwingConstants.CENTER);
-		textFieldCursoConMasAlumnos.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textFieldCursoConMasAlumnos.setColumns(10);
-		textFieldCursoConMasAlumnos.setBounds(479, 225, 146, 44);
-		contentPane.add(textFieldCursoConMasAlumnos);
-		
 		JLabel lblCursoConMenosAlumnos = new JLabel("CURSO CON MENOS ALUMNOS:");
 		lblCursoConMenosAlumnos.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblCursoConMenosAlumnos.setBounds(160, 293, 313, 44);
 		contentPane.add(lblCursoConMenosAlumnos);
-		
-		textFieldCursoConMenosAlumnos = new JTextField();
-		textFieldCursoConMenosAlumnos.setHorizontalAlignment(SwingConstants.CENTER);
-		textFieldCursoConMenosAlumnos.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textFieldCursoConMenosAlumnos.setColumns(10);
-		textFieldCursoConMenosAlumnos.setBounds(479, 294, 146, 44);
-		contentPane.add(textFieldCursoConMenosAlumnos);
 		
 		JLabel lblCursosQueNoVan = new JLabel("CURSOS QUE NO VAN:");
 		lblCursosQueNoVan.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -122,10 +99,23 @@ public class ConsultaHuelga extends JFrame
 		lblConsultasHuelgas.setBounds(260, 21, 264, 44);
 		contentPane.add(lblConsultasHuelgas);
 		
-		JList listCursosQueNoVAn = new JList();
-		listCursosQueNoVAn.setBorder(new LineBorder(new Color(0, 0, 0)));
-		listCursosQueNoVAn.setToolTipText("");
-		listCursosQueNoVAn.setBounds(403, 368, 222, 44);
-		contentPane.add(listCursosQueNoVAn);
+		JComboBox comboBoxCursosQueNoVan = new JComboBox();
+		comboBoxCursosQueNoVan.setBounds(403, 368, 222, 44);
+		contentPane.add(comboBoxCursosQueNoVan);
+		
+		JLabel lblNumAlumnosEnHuelga_Result = new JLabel("");
+		lblNumAlumnosEnHuelga_Result.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNumAlumnosEnHuelga_Result.setBounds(469, 152, 156, 44);
+		contentPane.add(lblNumAlumnosEnHuelga_Result);
+		
+		JLabel lblCursoConMasAlumnos_Result = new JLabel("");
+		lblCursoConMasAlumnos_Result.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCursoConMasAlumnos_Result.setBounds(469, 224, 156, 44);
+		contentPane.add(lblCursoConMasAlumnos_Result);
+		
+		JLabel lblCursoConMenosAlumnos_Result = new JLabel("");
+		lblCursoConMenosAlumnos_Result.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCursoConMenosAlumnos_Result.setBounds(483, 293, 142, 44);
+		contentPane.add(lblCursoConMenosAlumnos_Result);
 	}
 }
