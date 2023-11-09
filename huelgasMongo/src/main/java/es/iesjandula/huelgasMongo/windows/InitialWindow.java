@@ -9,12 +9,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import es.iesjandula.huelgasMongo.connections.MongoClientConnection;
+
 public class InitialWindow extends JFrame
 {
 	/**
 	 * Create the frame.
 	 */
-	public InitialWindow()
+	public InitialWindow(MongoClientConnection mongo)
 	{
 		super("Menu Huelgas");
 		setBounds(100, 100, 450, 300);
@@ -24,7 +26,7 @@ public class InitialWindow extends JFrame
 		JButton botonHuelga = new JButton("Huelga");
 		botonHuelga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame Huelga = new Huelga();
+				JFrame Huelga = new Huelga(mongo);
 				Huelga.setVisible(true);
 				setVisible(false);
 			}
@@ -35,7 +37,7 @@ public class InitialWindow extends JFrame
 		JButton botonConsulta = new JButton("Consulta");
 		botonConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame consultaHuelga = new ConsultaHuelga();
+				JFrame consultaHuelga = new ConsultaHuelga(mongo);
 				consultaHuelga.setVisible(true);
 				setVisible(false);
 			}

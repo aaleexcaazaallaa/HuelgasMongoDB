@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import es.iesjandula.huelgasMongo.connections.MongoClientConnection;
+
 public class Huelga extends JFrame
 {
 
@@ -23,7 +25,7 @@ public class Huelga extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public Huelga()
+	public Huelga(MongoClientConnection mongo)
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -64,7 +66,7 @@ public class Huelga extends JFrame
 		JButton botonSalir = new JButton("SALIR");
 		botonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InitialWindow initialWindow = new InitialWindow();
+				InitialWindow initialWindow = new InitialWindow(mongo);
 				initialWindow.setVisible(true);
 				setVisible(false);
 			}

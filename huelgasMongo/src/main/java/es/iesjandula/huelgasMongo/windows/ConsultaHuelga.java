@@ -17,6 +17,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JScrollBar;
 import javax.swing.JList;
 import javax.swing.border.LineBorder;
+
+import es.iesjandula.huelgasMongo.connections.MongoClientConnection;
+
 import javax.swing.JCheckBoxMenuItem;
 
 public class ConsultaHuelga extends JFrame
@@ -28,7 +31,7 @@ public class ConsultaHuelga extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public ConsultaHuelga()
+	public ConsultaHuelga(MongoClientConnection mongo)
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -43,6 +46,7 @@ public class ConsultaHuelga extends JFrame
 		btnAceptar.setBackground(Color.GREEN);
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				consulta(mongo);
 			}
 		});
 		btnAceptar.setBounds(160, 444, 177, 59);
@@ -55,7 +59,7 @@ public class ConsultaHuelga extends JFrame
 		btnSalir.setBounds(448, 444, 177, 59);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame initialWindow = new InitialWindow();
+				JFrame initialWindow = new InitialWindow(mongo);
 				initialWindow.setVisible(true);
 				setVisible(false);
 			}
@@ -117,5 +121,11 @@ public class ConsultaHuelga extends JFrame
 		lblCursoConMenosAlumnos_Result.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCursoConMenosAlumnos_Result.setBounds(483, 293, 142, 44);
 		contentPane.add(lblCursoConMenosAlumnos_Result);
+	}
+	
+	
+	public void consulta(MongoClientConnection mongo) {
+		
+		
 	}
 }
