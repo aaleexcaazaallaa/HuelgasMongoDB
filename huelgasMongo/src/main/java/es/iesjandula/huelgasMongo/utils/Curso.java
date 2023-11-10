@@ -48,11 +48,7 @@ public class Curso
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("Curso [nombre=");
 		builder.append(nombre);
-		builder.append(", alumnos=");
-		builder.append(alumnos);
-		builder.append("]");
 		return builder.toString();
 	}
 	

@@ -63,13 +63,9 @@ public class Alumno
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("Alumno [nombre=");
 		builder.append(nombre);
-		builder.append(", dni=");
+		builder.append(", ");
 		builder.append(dni);
-		builder.append(", curso=");
-		builder.append(curso);
-		builder.append("]");
 		return builder.toString();
 	}
 	
