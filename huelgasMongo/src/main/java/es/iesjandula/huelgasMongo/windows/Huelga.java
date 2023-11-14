@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,10 +20,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import es.iesjandula.huelgasMongo.connections.MongoClientConnection;
 import es.iesjandula.huelgasMongo.utils.Alumno;
-import es.iesjandula.huelgasMongo.utils.CheckBoxListCellRenderer;
+import es.iesjandula.huelgasMongo.utils.CheckboxListCellRenderer;
 import es.iesjandula.huelgasMongo.utils.Curso;
 import es.iesjandula.huelgasMongo.utils.ParseAlumnos;
 
@@ -58,8 +60,18 @@ public class Huelga extends JFrame
 		
 		JList<JCheckBox> listAlumnos = new JList<>(alumnolistModel);
 		listAlumnos.setLocation(479, 148);
-        listAlumnos.setCellRenderer(new CheckBoxListCellRenderer());
-        listAlumnos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listAlumnos.setCellRenderer(new CheckboxListCellRenderer());
+        listAlumnos.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting() ) {
+                    ListSelectionModel selectionModel = ((JList) e.getSource()).getSelectionModel();
+                    if (!selectionModel.get) {
+                        selectionModel.setLeadAnchorNotificationEnabled(true);
+                    }
+                }
+            }
+        });
 		JScrollPane scrollPane = new JScrollPane(listAlumnos);
 		scrollPane.setBounds(53, 164, 346, 290);
 		contentPane.add(scrollPane);
@@ -96,12 +108,15 @@ public class Huelga extends JFrame
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		
 		JButton botonAceptar = new JButton("ACEPTAR");
 		botonAceptar.setForeground(new Color(255, 255, 255));
 		botonAceptar.setBackground(new Color(0, 255, 0));
 		botonAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				
 			}
 		});
 		botonAceptar.setBounds(53, 485, 112, 52);
@@ -129,7 +144,6 @@ public class Huelga extends JFrame
 		{
 			
 			JCheckBox chckbxNewCheckBox = new JCheckBox(entry.getValue().toString());
-			chckbxNewCheckBox.setBounds(267, 180, 97, 23);
 			list.addElement(chckbxNewCheckBox);
 		}
 

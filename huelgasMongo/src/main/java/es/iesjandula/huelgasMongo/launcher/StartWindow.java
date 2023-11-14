@@ -26,9 +26,6 @@ public class StartWindow
 				try
 				{
 					MongoClientConnection mongo = new MongoClientConnection("mongodb+srv://admin:admin@cluster0.0j45czf.mongodb.net/?retryWrites=true&w=majority");
-					List<Alumno> alumnos = new ArrayList<Alumno>();
-					alumnos.add(new Alumno("Juan Sutil", "123456789A", "2 DAM"));
-					mongo.uploadAlumnos(alumnos, "2023-11-16");
 					JFrame initialWindow = new InitialWindow(mongo);
 					initialWindow.setVisible(true);
 				} catch (Exception e)
